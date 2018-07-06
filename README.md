@@ -14,4 +14,4 @@ For more details, read the [TestCafe Installation instructions](http://devexpres
 
 `testcafe chrome testForCommunityDataListing.ts -e`
 
-TestCafe uses your real browser, so any testing browser must be installed first.  Use the `-e` option to ignore any irrelevant JavaScript errors that appear and cause the test to fail.  For more information, read the documentation on the [TestCafe CLI](http://devexpress.github.io/testcafe/documentation/using-testcafe/command-line-interface.html).
+TestCafe uses your real browser, so any testing browser must be installed first.  You do not need WebDriver, or any other software or packages.  Use the `-e` option to ignore any irrelevant JavaScript errors that appear and cause the test to fail.  For more information, read the documentation on the [TestCafe CLI](http://devexpress.github.io/testcafe/documentation/using-testcafe/command-line-interface.html).
