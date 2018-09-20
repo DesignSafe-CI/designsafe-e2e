@@ -4,7 +4,7 @@
   "description": "End-to-end tests for DesignSafe (https://www.designsafe-ci.org/) using TestCafe(https://testcafe.devexpress.com/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "testcafe 'chrome:headless' tests/**/*.ts --skip-js-errors --reporter xunit"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/DesignSafe-CI/designsafe-e2e#readme",
   "devDependencies": {
+    "@types/node": "^10.10.1",
     "testcafe": "^0.22.0"
+  },
+  "dependencies": {
+    "@types/es6-promise": "^3.3.0"
   }
 }

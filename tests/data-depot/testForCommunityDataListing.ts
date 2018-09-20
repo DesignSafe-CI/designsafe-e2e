@@ -1,7 +1,8 @@
 import { Selector } from 'testcafe';
+import {BASE_URL} from '../config';
 
-fixture `Community Data Listing`
-  .page`https://designsafeci-dev.tacc.utexas.edu/`;
+let f = fixture `Community Data Listing`;
+f.page(BASE_URL);
 
 const dropdown = Selector('.dropdown');
 const dropdownMenuDataDepot = dropdown.find('li').withText('Data Depot');
@@ -17,5 +18,5 @@ test('Community Data Listing', async t => {
   const tableCount = await communityDataListing.count;
   await t
     .expect(tableCount).gt(0, 'No items in Community Data listing')
-    .expect(tableCount).lt(25, 'More than 25 items in Communitry Data listing');
-}); 
+    .expect(tableCount).lt(1000, 'More than 1000 items in Communitry Data listing');
+});

@@ -1,14 +1,15 @@
 import { Selector } from 'testcafe';
+import {BASE_URL} from '../config';
 
-fixture `My Data Listing`
-  .page`https://designsafeci-dev.tacc.utexas.edu/`;
+let f = fixture `Published Project Listing`;
+f.page(BASE_URL);
 
-const dropdown = Selector('.btn-group').withText('Log in');
+const dropdown = Selector('.dropdown');
 const dropdownMenuDataDepot = dropdown.find('li').withText('Data Depot');
 const dataDepotNavBarPublished = Selector('.ng-scope').withAttribute('ng-switch-when','publicData');
 const publishedListing = Selector('tr');
 
-test('My Data Listing', async t => {
+test('Published Project Listing', async t => {
   await t
     .click(dropdown)
     .click(dropdownMenuDataDepot)
@@ -16,6 +17,5 @@ test('My Data Listing', async t => {
 
   const tableCount = await publishedListing.count;
   await t
-    .expect(tableCount).gt(0, 'No items in My Data listing')
-    .expect(tableCount).lt(25, 'More than 25 items in My Data listing');
-}); 
+    .expect(tableCount).gt(0, 'No items in Published listing')
+});
