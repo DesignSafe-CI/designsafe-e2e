@@ -4,7 +4,7 @@
   "description": "End-to-end tests for DesignSafe (https://www.designsafe-ci.org/) using TestCafe(https://testcafe.devexpress.com/)",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe 'chrome:headless' tests/**/*.ts --skip-js-errors --reporter xunit"
+    "test": "testcafe 'chrome:headless' tests/**/*.ts --skip-js-errors"
   },
   "repository": {
     "type": "git",
