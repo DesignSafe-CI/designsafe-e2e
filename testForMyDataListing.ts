@@ -3,16 +3,23 @@ import { Selector } from 'testcafe';
 fixture `My Data Listing`
   .page`https://designsafeci-dev.tacc.utexas.edu/`;
 
-const dropdown = Selector('.btn-group').withText('Log in');
+const loginButton = Selector('.btn-group').find('a').withText('Log in');
+const dropdown = Selector('.dropdown');
 const dropdownMenuDataDepot = dropdown.find('li').withText('Data Depot');
 const dataDepotNavBarPublished = Selector('.ng-scope').withAttribute('ng-switch-when','publicData');
 const publishedListing = Selector('tr');
 
 test('My Data Listing', async t => {
   await t
-    .click(dropdown)
+    .click(loginButton);
+  
+  /* await t
+    .typeText(#username, 'username')
+    .typeText(#password, 'password'); */
+  
+  await t
     .click(dropdownMenuDataDepot)
-    .click(dataDepotNavBarPublished)
+    .click(dataDepotNavBarPublished);
 
   const tableCount = await publishedListing.count;
   await t
