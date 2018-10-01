@@ -13,11 +13,18 @@ test('My Data Listing', async t => {
   await t
     .click(loginButton);
   
-  /* await t
-    .typeText(#username, 'username')
-    .typeText(#password, 'password'); */
-  
   await t
+    .typeText('#username', 'XYZ') // Replace XYZ with your test user's username
+    .typeText('#password', 'XYZ') // Replace XYZ with your test user's password
+    .click('#login-btn');
+  
+  // If the user account needs approval, uncomment the line of code below.  
+  // This will usually only need to be used the first login.
+  /* await t
+    .click('#approveAlways'); */
+
+  await t
+    .click(dropdown)
     .click(dropdownMenuDataDepot)
     .click(dataDepotNavBarPublished);
 
