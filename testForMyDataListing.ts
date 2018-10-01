@@ -6,7 +6,6 @@ fixture `My Data Listing`
 const loginButton = Selector('.btn-group').find('a').withText('Log in');
 const dropdown = Selector('.dropdown').withText('Research Workbench');
 const dropdownMenuDataDepot = dropdown.find('li').withText('Data Depot');
-const dataDepotNavBarPublished = Selector('.ng-scope').withAttribute('ng-switch-when','publicData');
 const publishedListing = Selector('tr');
 
 test('My Data Listing', async t => {
@@ -26,7 +25,6 @@ test('My Data Listing', async t => {
   await t
     .click(dropdown)
     .click(dropdownMenuDataDepot)
-    .click(dataDepotNavBarPublished);
 
   const tableCount = await publishedListing.count;
   await t
