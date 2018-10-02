@@ -6,7 +6,7 @@ fixture `My Data Listing`
 const loginButton = Selector('.btn-group').find('a').withText('Log in');
 const dropdown = Selector('.dropdown').withText('Research Workbench');
 const dropdownMenuDataDepot = dropdown.find('li').withText('Data Depot');
-const publishedListing = Selector('tr');
+const myDataListing = Selector('tr');
 
 test('My Data Listing', async t => {
   await t
@@ -26,8 +26,6 @@ test('My Data Listing', async t => {
     .click(dropdown)
     .click(dropdownMenuDataDepot)
 
-  const tableCount = await publishedListing.count;
-  await t
-    .expect(tableCount).gt(0, 'No items in My Data listing')
-    .expect(tableCount).lt(25, 'More than 25 items in My Data listing');
+  const tableCount = await myDataListing.count;
+  await t.expect(tableCount).lte(25, 'More than 25 items in My Data listing');
 }); 
