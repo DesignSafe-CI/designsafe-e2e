@@ -1,9 +1,9 @@
 import { Selector } from 'testcafe';
-import config from './config'; // Loads variables from config.js
+import { BASE_URL, USERNAME, PASSWORD } from '../config';  // Loads variables from config.ts
 
 // Loads DesignSafe staging page
-fixture `My Data Listing`
-  .page`https://designsafeci-dev.tacc.utexas.edu/`;
+let f = fixture`My Data Listing`;
+f.page(BASE_URL);
 
 // Sets elements that will be used during test execution
 const loginButton = Selector('.btn-group').find('a').withText('Log in');
@@ -19,8 +19,8 @@ test('My Data Listing', async t => {
   
   // Enters username and password set in config.js and clicks login button
   await t
-    .typeText('#username', `${config.username}`)
-    .typeText('#password', `${config.password}`) 
+    .typeText('#username', USERNAME)
+    .typeText('#password', PASSWORD) 
     .click('#login-btn');
   
   // If the user account needs approval, uncomment the line of code below.  
